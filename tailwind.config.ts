@@ -9,8 +9,20 @@ export default {
   theme: {
     extend: {
       colors: {
+        text: "var(--text)",
         background: "var(--background)",
-        foreground: "var(--foreground)",
+
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        accent: "var(--accent)",
+
+        primarylight: "var(--primary-light)",
+        secondarylight: "var(--secondary-light)",
+        accentlight: "var(--accent-light)",
+      },
+      fontFamily: {
+        heading: "var(--heading)",
+        body: "var(--body)",
       },
     },
   },

@@ -1,3 +1,5 @@
+import NavBar from "@/components/layout/NavBar";
+import { abril, charis } from "@/lib/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -12,8 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={`${abril.variable} ${charis.variable}`}>
+      <body className="bg-background font-heading text-text antialiased">
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
