@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import NavBar from "@/components/layout/NavBar";
 import { abril, charis } from "@/lib/fonts";
 import type { Metadata } from "next";
@@ -15,9 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${abril.variable} ${charis.variable}`}>
-      <body className="bg-background font-heading text-text antialiased">
+      <body className="overflow-x-hidden bg-background font-body text-text antialiased">
         <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );

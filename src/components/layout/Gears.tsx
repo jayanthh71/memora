@@ -10,14 +10,16 @@ export default function Gears() {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
+      const rotation = scrollPosition * 0.1;
+
       const gear1 = document.getElementById("gear1");
       const gear2 = document.getElementById("gear2");
 
       if (gear1) {
-        gear1.style.transform = `translate(-50%, 0) rotate(${scrollPosition}deg)`;
+        gear1.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`;
       }
       if (gear2) {
-        gear2.style.transform = `translate(50%, 0) rotate(${scrollPosition}deg)`;
+        gear2.style.transform = `translate(50%, 0) rotate(-${rotation}deg)`;
       }
 
       if (scrollPosition + windowHeight >= documentHeight) {
@@ -35,7 +37,7 @@ export default function Gears() {
   }, []);
 
   return (
-    <div className="relative h-screen">
+    <>
       <Image
         className="absolute -translate-x-1/2"
         id="gear1"
@@ -45,13 +47,13 @@ export default function Gears() {
         alt="Spinning gear wheel"
       />
       <Image
-        className="absolute -bottom-0 -right-0 translate-x-1/2"
+        className="absolute -bottom-32 -right-0 translate-x-1/2"
         id="gear2"
         src="/gear.svg"
         width={500}
         height={500}
         alt="Spinning gear wheel"
       />
-    </div>
+    </>
   );
 }

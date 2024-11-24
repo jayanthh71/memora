@@ -5,7 +5,7 @@ export default function NavBar() {
     <>
       <nav>
         <div className="mx-auto max-w-7xl p-6">
-          <div className="flex h-20 items-center justify-between text-text">
+          <div className="flex h-20 items-center justify-between font-heading text-text">
             <Link href="/" className="text-6xl">
               Memora
             </Link>
@@ -19,7 +19,7 @@ export default function NavBar() {
               <Link href="/dashboard" className="p-1.5 hover:text-primary">
                 Dashboard
               </Link>
-              <button className="hover:bg-accentlight rounded-lg bg-accent p-1.5 px-3">
+              <button className="rounded-lg bg-accent p-1.5 px-3 hover:bg-accentlight">
                 Get started
               </button>
             </div>
