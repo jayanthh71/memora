@@ -24,6 +24,16 @@ export default {
         heading: "var(--heading)",
         body: "var(--body)",
       },
+      keyframes: {
+        "counter-spin": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(-360deg)" },
+        },
+      },
+      animation: {
+        "gear-spin": "spin 12s linear infinite",
+        "gear-spin-counter": "counter-spin 12s linear infinite",
+      },
     },
   },
   plugins: [],
