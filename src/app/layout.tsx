@@ -1,5 +1,5 @@
 import Footer from "@/components/layout/Footer";
-import NavBar from "@/components/layout/NavBar";
+import Navbar from "@/components/layout/Navbar";
 import { abril, charis } from "@/lib/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en" className={`${abril.variable} ${charis.variable}`}>
       <body className="overflow-x-hidden bg-background antialiased">
         <div className="flex min-h-screen flex-col">
-          <NavBar />
+          <Navbar />
           <div className="flex flex-grow">{children}</div>
           <Footer />
         </div>

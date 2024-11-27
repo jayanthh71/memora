@@ -3,21 +3,21 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-5xl flex-col items-center justify-center">
-      <div className="absolute -left-0 -translate-x-1/2">
+      <div className="absolute -left-0 -z-10 -translate-x-1/2">
         <Image
           className="animate-gear-spin"
           src="/gear.svg"
-          width={500}
-          height={500}
+          width={350}
+          height={350}
           alt="Spinning gear wheel"
         />
       </div>
-      <div className="absolute right-0 translate-x-1/2">
+      <div className="absolute right-0 -z-10 translate-x-1/2">
         <Image
           className="animate-gear-spin-counter"
           src="/gear.svg"
-          width={500}
-          height={500}
+          width={350}
+          height={350}
           alt="Spinning gear wheel"
         />
       </div>
@@ -32,6 +32,9 @@ export default function Home() {
           memories for your loved ones, or a simple reminder of who you were at
           a certain time, Memora ensures your stories stand the test of time.
         </p>
+        <button className="mx-auto w-40 rounded-lg bg-accent px-3 py-1.5 text-lg font-bold transition-colors duration-200 hover:bg-accentlight">
+          Continue
+        </button>
       </div>
     </main>
   );
