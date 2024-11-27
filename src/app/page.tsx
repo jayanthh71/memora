@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -32,9 +33,12 @@ export default function Home() {
           memories for your loved ones, or a simple reminder of who you were at
           a certain time, Memora ensures your stories stand the test of time.
         </p>
-        <button className="mx-auto w-40 rounded-lg bg-accent px-3 py-1.5 text-lg font-bold transition-colors duration-200 hover:bg-accentlight">
+        <Link
+          href="/login"
+          className="mx-auto w-40 rounded-lg bg-accent px-3 py-1.5 text-lg font-bold transition-colors duration-200 hover:bg-accentlight"
+        >
           Continue
-        </button>
+        </Link>
       </div>
     </main>
   );

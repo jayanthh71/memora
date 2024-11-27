@@ -4,13 +4,15 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-20 border-b border-b-gray-700/50 backdrop-blur">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8 font-heading text-text">
-        <h1 className="text-4xl">Memora</h1>
+        <button className="text-4xl">
+          <Link href="/">Memora</Link>
+        </button>
         <div className="flex items-center gap-7">
           <Link
-            href="/"
+            href="/features"
             className="text-lg transition-colors duration-200 hover:text-primary"
           >
-            Home
+            Features
           </Link>
           <Link
             href="/dashboard"
@@ -19,14 +21,11 @@ export default function Navbar() {
             Dashboard
           </Link>
           <Link
-            href="/pods"
-            className="text-lg transition-colors duration-200 hover:text-primary"
+            href="/login"
+            className="rounded-lg bg-accent px-3 py-1.5 text-lg transition-colors duration-200 hover:bg-accentlight"
           >
-            Pods
-          </Link>
-          <button className="rounded-lg bg-accent px-3 py-1.5 text-lg transition-colors duration-200 hover:bg-accentlight">
             Get started
-          </button>
+          </Link>
         </div>
       </nav>
     </header>
