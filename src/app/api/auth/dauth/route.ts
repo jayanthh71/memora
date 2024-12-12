@@ -1,6 +1,6 @@
-import type { NextApiRequest } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
   const url = req.url;
   const params = new URLSearchParams(url?.split("?")[1]);
   const code = params.get("code");
@@ -35,11 +35,9 @@ export async function GET(req: NextApiRequest) {
     }
 
     const user = await userResponse.json();
-    return new Response(JSON.stringify(user));
+    return NextResponse.json(user, { status: 200 });
   } catch (error) {
     console.error("Error fetching data:", error);
-    return new Response(JSON.stringify({ error: "Error fetching data" }), {
-      status: 500,
-    });
+    return NextResponse.json({ error: "Error fetching data" }, { status: 500 });
   }
 }

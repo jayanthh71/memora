@@ -1,4 +1,3 @@
-import Dauth from "@/app/utils/dauth";
 import { signIn } from "@/auth";
 
 export default async function SignIn() {
@@ -14,7 +13,6 @@ export default async function SignIn() {
         <div className="flex flex-col gap-4">
           <button
             className="flex min-w-32 items-center justify-center gap-3 rounded-xl bg-white px-5 py-3 font-medium"
-            type="submit"
             onClick={async () => {
               "use server";
               await signIn("google", { redirectTo: "/dashboard" });
@@ -46,16 +44,12 @@ export default async function SignIn() {
             </svg>
             Sign in with Google
           </button>
-          <button
+          <a
             className="flex min-w-32 items-center justify-center gap-3 rounded-xl bg-black px-5 py-3 font-medium text-text"
-            type="submit"
-            onClick={async () => {
-              "use server";
-              await Dauth();
-            }}
+            href={`https://auth.delta.nitt.edu/authorize?client_id=${process.env.DAUTH_ID}&redirect_uri=${process.env.DAUTH_REDIRECT}&scope=user`}
           >
             Sign in with DAuth
-          </button>
+          </a>
         </div>
       </div>
     </main>
