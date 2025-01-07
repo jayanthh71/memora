@@ -10,15 +10,13 @@ export default async function SignIn() {
             You&apos;ll get notified when it&apos;s time to view your memories
           </p>
         </div>
-        <form
-          action={async () => {
-            "use server";
-            await signIn("google", { redirectTo: "/dashboard" });
-          }}
-        >
+        <div className="flex flex-col gap-4">
           <button
             className="flex min-w-32 items-center justify-center gap-3 rounded-xl bg-white px-5 py-3 font-medium"
-            type="submit"
+            onClick={async () => {
+              "use server";
+              await signIn("google", { redirectTo: "/dashboard" });
+            }}
           >
             <svg
               className="size-5"
@@ -46,7 +44,16 @@ export default async function SignIn() {
             </svg>
             Sign in with Google
           </button>
-        </form>
+          <button
+            className="flex min-w-32 items-center justify-center gap-3 rounded-xl bg-black px-5 py-3 font-medium text-text"
+            onClick={async () => {
+              "use server";
+              await signIn("dauth", { redirectTo: "/dashboard" });
+            }}
+          >
+            Sign in with DAuth
+          </button>
+        </div>
       </div>
     </main>
   );

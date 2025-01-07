@@ -14,7 +14,6 @@ export async function connectDB() {
   try {
     const client = new MongoClient(process.env.MONGODB_URI);
     await client.connect();
-    console.log("Connected to the database");
     cachedClient = client;
     return cachedClient;
   } catch (error) {
