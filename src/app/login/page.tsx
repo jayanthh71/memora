@@ -44,12 +44,15 @@ export default async function SignIn() {
             </svg>
             Sign in with Google
           </button>
-          <a
+          <button
             className="flex min-w-32 items-center justify-center gap-3 rounded-xl bg-black px-5 py-3 font-medium text-text"
-            href={`https://auth.delta.nitt.edu/authorize?client_id=${process.env.DAUTH_ID}&redirect_uri=${process.env.DAUTH_REDIRECT}&scope=user`}
+            onClick={async () => {
+              "use server";
+              await signIn("dauth", { redirectTo: "/dashboard" });
+            }}
           >
             Sign in with DAuth
-          </a>
+          </button>
         </div>
       </div>
     </main>
