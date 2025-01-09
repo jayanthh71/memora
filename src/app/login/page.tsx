@@ -1,4 +1,5 @@
 import { signIn } from "@/auth";
+import Image from "next/image";
 
 export default async function SignIn() {
   return (
@@ -51,6 +52,7 @@ export default async function SignIn() {
               await signIn("dauth", { redirectTo: "/dashboard" });
             }}
           >
+            <Image src="/delta.png" alt="DAuth" height="24" width="24" />
             Sign in with DAuth
           </button>
         </div>
