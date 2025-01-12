@@ -34,10 +34,10 @@ export default function Home() {
           a certain time, Memora ensures your stories stand the test of time.
         </p>
         <Link
-          href="/login"
+          href="/dashboard"
           className="mx-auto w-40 rounded-lg bg-accent px-3 py-1.5 text-lg font-bold transition-colors duration-200 hover:bg-accentlight"
         >
-          Continue
+          Get Started
         </Link>
       </div>
     </main>
