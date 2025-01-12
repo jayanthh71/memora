@@ -19,10 +19,10 @@ export default async function Navbar() {
             Features
           </Link>
           <Link
-            href="/dashboard"
+            href="/pods"
             className="text-lg transition-colors duration-200 hover:text-primary"
           >
-            Dashboard
+            Pods
           </Link>
           {!signedIn ? (
             <Link

@@ -16,7 +16,7 @@ export default async function SignIn() {
             className="flex min-w-32 items-center justify-center gap-3 rounded-xl bg-white px-5 py-3 font-medium"
             onClick={async () => {
               "use server";
-              await signIn("google", { redirectTo: "/dashboard" });
+              await signIn("google", { redirectTo: "/pods" });
             }}
           >
             <svg
@@ -49,7 +49,7 @@ export default async function SignIn() {
             className="flex min-w-32 items-center justify-center gap-3 rounded-xl bg-black px-5 py-3 font-medium text-text"
             onClick={async () => {
               "use server";
-              await signIn("dauth", { redirectTo: "/dashboard" });
+              await signIn("dauth", { redirectTo: "/pods" });
             }}
           >
             <Image src="/delta.png" alt="DAuth" height="24" width="24" />
