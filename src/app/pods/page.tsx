@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import NewPod from "@/components/ui/NewPod";
+import CreatePod from "@/components/ui/CreatePod";
 import Pod from "@/components/ui/Pod";
 import { redirect } from "next/navigation";
 
@@ -14,13 +14,15 @@ export default async function Pods() {
   return (
     <div className="mx-auto flex max-w-7xl flex-col items-start space-y-10 p-8 text-text">
       <div className="space-y-2">
-        <h1 className="font-heading text-4xl">Hello, {name} </h1>
+        <h1 className="font-body text-4xl font-bold">Hello, {name} </h1>
         <p className="font-body text-lg">({email})</p>
       </div>
       <div className="space-y-8">
-        <h2 className="font-heading text-3xl">Upcoming Pods ( {podsDue} ):</h2>
+        <h2 className="font-body text-3xl font-bold">
+          Upcoming Pods ({podsDue}):
+        </h2>
         <div className="flex flex-wrap items-center justify-center gap-5">
-          <NewPod />
+          <CreatePod />
           <Pod />
           <Pod />
           <Pod />

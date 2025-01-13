@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function NewPod() {
+export default function CreatePod() {
   return (
     <div className="flex h-80 w-72 min-w-min flex-col items-center justify-center space-y-5 rounded-xl border-2 border-accent bg-secondary p-4 text-center text-text transition-shadow hover:shadow-[0_0_25px_5px_rgba(0,0,0,0.2)] hover:shadow-accent">
       <h1 className="font-heading text-xl">Create New Pod</h1>
       <Link
-        className="flex h-20 w-20 items-center justify-center rounded-full bg-accent text-text"
+        className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-text"
         href="/pods/new"
       >
         <svg
