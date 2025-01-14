@@ -1,15 +1,18 @@
 import { auth } from "@/auth";
 import CreatePod from "@/components/ui/CreatePod";
 import Pod from "@/components/ui/Pod";
+import handlePodDashboard from "@/lib/handlers/handlePodDashboard";
 import { redirect } from "next/navigation";
-
-// Sample data
-const podsDue = 3;
 
 export default async function Pods() {
   const session = await auth();
   if (!session) redirect("/login");
-  const { name, email } = session.user!;
+
+  if (!session.user?.name || !session.user?.email) {
+    throw new Error("User data is required");
+  }
+  const { name, email } = session.user;
+  const podsDue = await handlePodDashboard(email);
 
   return (
     <div className="mx-auto flex max-w-7xl flex-col items-start space-y-10 p-8 text-text">
@@ -19,13 +22,18 @@ export default async function Pods() {
       </div>
       <div className="space-y-8">
         <h2 className="font-body text-3xl font-bold">
-          Upcoming Pods ({podsDue}):
+          Upcoming Pods ({podsDue.length}):
         </h2>
         <div className="flex flex-wrap items-center justify-center gap-5">
           <CreatePod />
-          <Pod />
-          <Pod />
-          <Pod />
+          {podsDue.map((pod) => (
+            <Pod
+              key={pod.id}
+              name={pod.name}
+              description={pod.description}
+              dateDue={pod.date_due}
+            />
+          ))}
         </div>
       </div>
     </div>
