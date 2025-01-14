@@ -36,7 +36,7 @@ export async function GET() {
     for (const { id, email, content } of result) {
       try {
         await transporter.sendMail({
-          from: '"Memora" <yourappname@gmail.com>',
+          from: `"Memora" <${process.env.EMAIL_USER}>`,
           to: email,
           subject: "Your Memora Pod is Here!",
           text: content,
