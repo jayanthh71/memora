@@ -13,12 +13,6 @@ export default async function Navbar() {
         </button>
         <div className="flex items-center gap-7">
           <Link
-            href="/features"
-            className="font-body text-lg font-bold transition-colors duration-200 hover:text-primary"
-          >
-            Features
-          </Link>
-          <Link
             href="/pods"
             className="font-body text-lg font-bold transition-colors duration-200 hover:text-primary"
           >
