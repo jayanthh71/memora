@@ -1,13 +1,8 @@
 "use client";
 
+import handleCreatePod from "@/lib/handlers/handleCreatePod";
+import { FormFields } from "@/lib/types";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-interface FormFields {
-  name: string;
-  description: string;
-  dueDate: string;
-  content: string;
-}
 
 export default function NewPod() {
   const {
@@ -18,6 +13,7 @@ export default function NewPod() {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
+    await handleCreatePod(data);
   };
 
   return (
