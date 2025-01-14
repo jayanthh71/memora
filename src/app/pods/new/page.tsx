@@ -1,53 +1,109 @@
-import Tiptap from "@/components/ui/Tiptap";
+"use client";
 
-// Sample Pod
-const pod = {
-  id: "",
-  email: "",
-  name: "",
-  description: "",
-  date_created: "",
-  date_due: "",
-  content: "",
-};
+import { SubmitHandler, useForm } from "react-hook-form";
+
+interface FormFields {
+  name: string;
+  description: string;
+  dueDate: string;
+  content: string;
+}
 
 export default function NewPod() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormFields>();
+
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+  };
+
   return (
     <div className="mx-auto flex min-w-full max-w-7xl flex-col items-center gap-8 p-8 text-text">
       <h1 className="font-heading text-4xl">Create a new Pod</h1>
-      <div className="flex h-5/6 w-5/6 flex-col items-center justify-between rounded-xl border-2 border-accent bg-secondary p-4">
+      <form
+        className="flex h-5/6 w-5/6 flex-col items-center justify-between rounded-xl border-2 border-accent bg-secondary p-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="w-3/5 space-y-5 p-4">
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Pod Name:</h1>
             <input
-              className="w-96 rounded-md border bg-secondary p-1.5 font-body text-xl focus:outline-none"
+              className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-xl focus:outline-none"
               type="text"
               autoFocus={true}
+              maxLength={30}
+              {...register("name", {
+                required: "Pod name is required",
+                maxLength: 30,
+              })}
             />
           </div>
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Description:</h1>
-            <Tiptap content={pod.description} />
+            <textarea
+              className="min-w-96 resize-none rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-none"
+              maxLength={80}
+              rows={2}
+              {...register("description", {
+                required: "Pod description is required",
+                maxLength: 80,
+              })}
+            />
           </div>
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Due Date:</h1>
             <input
-              className="w-96 rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-none"
+              className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-none"
               type="date"
               min={new Date().toISOString().split("T")[0]}
+              {...register("dueDate", { required: "Due date is required" })}
             />
           </div>
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Content:</h1>
-            <Tiptap content={pod.content} />
+            <textarea
+              className="min-w-96 resize-none rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-none"
+              rows={4}
+              {...register("content", { required: "Pod content is required" })}
+            />
           </div>
         </div>
-        <div className="flex justify-center pb-4">
-          <button className="w-40 rounded-lg bg-accent px-3 py-1.5 font-body text-lg font-bold">
-            Create Pod
+        <div className="flex flex-col items-center justify-center gap-4 pb-4">
+          {errors.name && (
+            <div className="font-body text-lg font-bold text-red-500">
+              {errors.name.message}
+            </div>
+          )}
+          {!errors.name && errors.description && (
+            <div className="font-body text-lg font-bold text-red-500">
+              {errors.description.message}
+            </div>
+          )}
+          {!errors.name && !errors.description && errors.dueDate && (
+            <div className="font-body text-lg font-bold text-red-500">
+              {errors.dueDate.message}
+            </div>
+          )}
+          {!errors.name &&
+            !errors.description &&
+            !errors.dueDate &&
+            errors.content && (
+              <div className="font-body text-lg font-bold text-red-500">
+                {errors.content.message}
+              </div>
+            )}
+          <button
+            className="w-40 rounded-lg bg-accent px-3 py-1.5 font-body text-lg font-bold disabled:opacity-50"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Creating..." : "Create Pod"}
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
