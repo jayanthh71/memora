@@ -27,11 +27,11 @@ export default function Home() {
           Capture your most meaningful moments today and relive them anytime.
         </p>
         <p className="text-xl">
-          Memora helps you create digital time capsules filled with thoughts,
-          photos and videos, all securely stored for the future. Whether
-          it&apos;s a heartfelt letter to your future self, a collection of
-          memories for your loved ones, or a simple reminder of who you were at
-          a certain time, Memora ensures your stories stand the test of time.
+          Memora helps you create digital time capsules filled with your
+          thoughts securely stored for the future. Whether it&apos;s a heartfelt
+          letter to your future self, a collection of memories for your loved
+          ones, or a simple reminder of who you were at a certain time, Memora
+          ensures your stories stand the test of time.
         </p>
         <Link
           href="/pods"
