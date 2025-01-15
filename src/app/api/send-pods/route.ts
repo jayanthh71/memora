@@ -1,9 +1,16 @@
 import { neon } from "@neondatabase/serverless";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
+    const url = req.url;
+    const params = new URLSearchParams(url?.split("?")[1]);
+    const key = params.get("key");
+    if (key !== process.env.EMAIL_KEY) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     if (!process.env.DATABASE_URL) {
       throw new Error("Environment variable for database is not set");
     }
@@ -31,8 +38,6 @@ export async function GET() {
       },
     });
 
-    console.log(transporter);
-
     for (const { id, email, content } of result) {
       try {
         await transporter.sendMail({
@@ -42,7 +47,6 @@ export async function GET() {
           text: content,
         });
 
-        console.log(`Email sent to ${email} For Pod ID: ${id}`);
         await sql`DELETE FROM pods WHERE id = ${id}`;
       } catch (err) {
         console.error(`Failed to send email to ${email}:`, err);
