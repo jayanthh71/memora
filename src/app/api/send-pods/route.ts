@@ -38,13 +38,13 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    for (const { id, email, content } of result) {
+    for (const { id, name, description, email, content } of result) {
       try {
         await transporter.sendMail({
           from: `"Memora" <${process.env.EMAIL_USER}>`,
           to: email,
           subject: "Your Memora Pod is Here!",
-          text: content,
+          html: `<h1>Title: ${name}</h1><h3>${description}</h3><p>${content}</p>`,
         });
 
         await sql`DELETE FROM pods WHERE id = ${id}`;
