@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "@/auth";
+import { auth } from "@/lib/auth";
 import { FormFields, Pod } from "@/lib/types";
 import { neon } from "@neondatabase/serverless";
 import { randomUUID } from "crypto";

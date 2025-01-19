@@ -1,6 +1,6 @@
-import { auth } from "@/auth";
 import CreatePod from "@/components/ui/CreatePod";
 import Pod from "@/components/ui/Pod";
+import { auth } from "@/lib/auth";
 import handlePodsDue from "@/lib/handlers/handlePodsDue";
 import { redirect } from "next/navigation";
 

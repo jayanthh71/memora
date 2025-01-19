@@ -55,7 +55,14 @@ export default function NewPod() {
               className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-none"
               type="date"
               min={new Date().toISOString().split("T")[0]}
-              {...register("dueDate", { required: "Due date is required" })}
+              {...register("dueDate", {
+                required: "Due date is required",
+                validate: (value) => {
+                  return new Date(value).getTime() >= new Date().getTime()
+                    ? true
+                    : "Due date must be in the future";
+                },
+              })}
             />
           </div>
           <div className="flex min-w-full items-start justify-between gap-3">

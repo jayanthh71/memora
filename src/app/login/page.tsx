@@ -1,4 +1,4 @@
-import { signIn } from "@/auth";
+import { signIn } from "@/lib/auth";
 import Image from "next/image";
 
 export default async function SignIn() {
