@@ -1,6 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-text: var(--text);
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-primarylight: var(--primary-light);
+  --color-secondarylight: var(--secondary-light);
+  --color-accentlight: var(--accent-light);
+
+  --font-heading: var(--heading);
+  --font-body: var(--body);
+
+  --animate-gear-spin: spin 12s linear infinite;
+  --animate-gear-spin-counter: counter-spin 12s linear infinite;
+
+  @keyframes counter-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 /* https://www.realtimecolors.com/?colors=08211b-def7f1-1d776a-809ee0-312bb1&fonts=Abril%20Fatface-Charis%20SIL */
 

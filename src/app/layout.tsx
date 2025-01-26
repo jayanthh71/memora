@@ -16,10 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${abril.variable} ${charis.variable}`}>
-      <body className="overflow-x-hidden bg-background antialiased">
+      <body className="bg-background overflow-x-hidden antialiased">
         <div className="flex min-h-screen flex-col">
           <Navbar />
-          <div className="flex flex-grow">{children}</div>
+          <div className="flex grow">{children}</div>
           <Footer />
         </div>
       </body>

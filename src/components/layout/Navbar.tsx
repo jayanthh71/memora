@@ -6,7 +6,7 @@ export default async function Navbar() {
   const signedIn = session?.user ? true : false;
 
   return (
-    <header className="sticky top-0 z-20 border-b border-b-gray-700/50 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-b-gray-700/50 backdrop-blur-sm">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8 text-text">
         <button className="font-heading text-4xl">
           <Link href="/">Memora</Link>

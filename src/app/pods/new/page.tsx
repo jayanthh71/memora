@@ -27,7 +27,7 @@ export default function NewPod() {
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Pod Name:</h1>
             <input
-              className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-xl focus:outline-none"
+              className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-xl focus:outline-hidden"
               type="text"
               autoFocus={true}
               maxLength={30}
@@ -40,7 +40,7 @@ export default function NewPod() {
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Description:</h1>
             <textarea
-              className="min-w-96 resize-none rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-none"
+              className="min-w-96 resize-none rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-hidden"
               maxLength={80}
               rows={2}
               {...register("description", {
@@ -52,7 +52,7 @@ export default function NewPod() {
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Due Date:</h1>
             <input
-              className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-none"
+              className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-hidden"
               type="date"
               min={new Date().toISOString().split("T")[0]}
               {...register("dueDate", {
@@ -68,7 +68,7 @@ export default function NewPod() {
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Content:</h1>
             <textarea
-              className="min-w-96 resize-none rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-none"
+              className="min-w-96 resize-none rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-hidden"
               rows={4}
               {...register("content", { required: "Pod content is required" })}
             />
