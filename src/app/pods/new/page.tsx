@@ -17,17 +17,17 @@ export default function NewPod() {
   };
 
   return (
-    <div className="mx-auto flex min-w-full max-w-7xl flex-col items-center gap-8 p-8 text-text">
+    <div className="text-text mx-auto flex max-w-7xl min-w-full flex-col items-center gap-8 p-8">
       <h1 className="font-heading text-4xl">Create a new Pod</h1>
       <form
-        className="flex h-5/6 w-5/6 flex-col items-center justify-between rounded-xl border-2 border-accent bg-secondary p-4"
+        className="border-accent bg-secondary flex h-5/6 w-5/6 flex-col items-center justify-between rounded-xl border-2 p-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="w-3/5 space-y-5 p-4">
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Pod Name:</h1>
             <input
-              className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-xl focus:outline-hidden"
+              className="bg-secondary font-body min-w-96 rounded-md border p-1.5 text-xl focus:outline-hidden"
               type="text"
               autoFocus={true}
               maxLength={30}
@@ -40,7 +40,7 @@ export default function NewPod() {
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Description:</h1>
             <textarea
-              className="min-w-96 resize-none rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-hidden"
+              className="bg-secondary font-body min-w-96 resize-none rounded-md border p-1.5 text-lg focus:outline-hidden"
               maxLength={80}
               rows={2}
               {...register("description", {
@@ -52,7 +52,7 @@ export default function NewPod() {
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Due Date:</h1>
             <input
-              className="min-w-96 rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-hidden"
+              className="bg-secondary font-body min-w-96 rounded-md border p-1.5 text-lg focus:outline-hidden"
               type="date"
               min={new Date().toISOString().split("T")[0]}
               {...register("dueDate", {
@@ -68,7 +68,7 @@ export default function NewPod() {
           <div className="flex min-w-full items-start justify-between gap-3">
             <h1 className="font-body text-2xl font-bold">Content:</h1>
             <textarea
-              className="min-w-96 resize-none rounded-md border bg-secondary p-1.5 font-body text-lg focus:outline-hidden"
+              className="bg-secondary font-body min-w-96 resize-none rounded-md border p-1.5 text-lg focus:outline-hidden"
               rows={4}
               {...register("content", { required: "Pod content is required" })}
             />
@@ -99,7 +99,7 @@ export default function NewPod() {
               </div>
             )}
           <button
-            className="w-40 rounded-lg bg-accent px-3 py-1.5 font-body text-lg font-bold disabled:opacity-50"
+            className="bg-accent font-body w-40 rounded-lg px-3 py-1.5 text-lg font-bold disabled:opacity-50"
             type="submit"
             disabled={isSubmitting}
           >

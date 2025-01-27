@@ -7,13 +7,13 @@ export default function PodCard(props: {
   dateDue: string;
 }) {
   return (
-    <div className="group flex h-80 w-72 min-w-min flex-col items-center justify-between rounded-xl border-2 border-accent bg-secondary p-4 text-center text-text transition-shadow hover:shadow-[0_0_25px_5px_rgba(0,0,0,0.2)] hover:shadow-accent">
+    <div className="group border-accent bg-secondary text-text hover:shadow-accent flex h-80 w-72 min-w-min flex-col items-center justify-between rounded-xl border-2 p-4 text-center transition-shadow hover:shadow-[0_0_25px_5px_rgba(0,0,0,0.2)]">
       <button
         onClick={async () => {
           "use server";
           await handleDeletePod(props.id);
         }}
-        className="absolute hidden self-end rounded-xl bg-accent p-2 text-text transition-shadow hover:shadow-[0_0_25px_5px_rgba(0,0,0,0.2)] group-hover:block"
+        className="bg-accent text-text absolute hidden self-end rounded-xl p-2 transition-shadow group-hover:block hover:shadow-[0_0_25px_5px_rgba(0,0,0,0.2)]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +26,8 @@ export default function PodCard(props: {
           />
         </svg>
       </button>
-      <h1 className="line-clamp-2 font-heading text-xl">{props.name}</h1>
-      <p className="line-clamp-5 font-body text-lg">{props.description}</p>
+      <h1 className="font-heading line-clamp-2 text-xl">{props.name}</h1>
+      <p className="font-body line-clamp-5 text-lg">{props.description}</p>
       <p className="font-body text-lg">Due Date: {props.dateDue}</p>
     </div>
   );

@@ -15,7 +15,7 @@ export default async function Pods() {
   const podsDue = await handlePodsDue(email);
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col items-start space-y-10 p-8 text-text">
+    <div className="text-text mx-auto flex max-w-7xl flex-col items-start space-y-10 p-8">
       <div className="space-y-2">
         <h1 className="font-body text-4xl font-bold">Hello, {name} </h1>
         <p className="font-body text-lg">({email})</p>

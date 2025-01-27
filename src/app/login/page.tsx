@@ -4,8 +4,8 @@ import Image from "next/image";
 export default async function SignIn() {
   return (
     <main className="flex w-full flex-col items-center justify-center">
-      <div className="flex h-2/3 w-1/2 flex-col items-center justify-around rounded-lg bg-primarylight py-8 text-center">
-        <div className="flex flex-col items-center justify-center gap-2 text-text">
+      <div className="bg-primarylight flex h-2/3 w-1/2 flex-col items-center justify-around rounded-lg py-8 text-center">
+        <div className="text-text flex flex-col items-center justify-center gap-2">
           <h1 className="font-heading text-3xl">Sign in</h1>
           <p className="font-body text-lg">
             You&apos;ll get notified when it&apos;s time to view your memories
@@ -46,7 +46,7 @@ export default async function SignIn() {
             Sign in with Google
           </button>
           <button
-            className="flex min-w-32 items-center justify-center gap-3 rounded-xl bg-black px-5 py-3 font-medium text-text"
+            className="text-text flex min-w-32 items-center justify-center gap-3 rounded-xl bg-black px-5 py-3 font-medium"
             onClick={async () => {
               "use server";
               await signIn("dauth", { redirectTo: "/pods" });

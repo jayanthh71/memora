@@ -22,7 +22,7 @@ export default function Home() {
           alt="Spinning gear wheel"
         />
       </div>
-      <div className="flex w-2/3 flex-col gap-6 text-center font-body text-text">
+      <div className="font-body text-text flex w-2/3 flex-col gap-6 text-center">
         <p className="text-3xl font-bold">
           Capture your most meaningful moments today and relive them anytime.
         </p>
@@ -35,7 +35,7 @@ export default function Home() {
         </p>
         <Link
           href="/pods"
-          className="mx-auto w-40 rounded-lg bg-accent px-3 py-1.5 text-lg font-bold transition-colors duration-200 hover:bg-accentlight"
+          className="bg-accent hover:bg-accentlight mx-auto w-40 rounded-lg px-3 py-1.5 text-lg font-bold transition-colors duration-200"
         >
           Get Started
         </Link>
